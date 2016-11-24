@@ -1,0 +1,14 @@
+#Première colonne, taille du vecteur
+#Deuxieme colonne, tempsMoyenSeq
+#Troisième colonne, tempsMoyenThreads1
+#Quatrième colonne, tempsMoyenThreads2
+#Cinquième colonne, tempsMoyenThreads4
+#Sixième colonne, tempsMoyenThreads8
+#Septième colonne, tempsMoyenThreads16
+1000 0 0 0 0 0 533
+5000 20000 266 2000 3333 2933 3200
+10000 64000 1333 1200 2133 3866 4400
+50000 216000 11200 19333 8266 11333 16133
+100000 408000 20400 33600 18400 21866 28933
+500000 2388000 84933 116133 100666 105733 130000
+1000000 5004000 174133 194400 220666 231600 262266
