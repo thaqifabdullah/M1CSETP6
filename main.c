@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
     }
 
     FILE *fichier;
-    fichier = fopen("vecteur", "r");
+    fichier = fopen("vecteur.txt", "r");
 
     affiche("Saisissez tous les elements du vecteur\n");
     for (i=0; i<taille; i++){
@@ -94,31 +94,38 @@ int main(int argc, char *argv[]) {
 
     struct timeval debut;
     struct timeval fin;
-    struct rusage usage_proc;
-    
-    struct timeval tempsCumuleProc;
-    struct timeval tempsCumuleSys; 
-    long long int tempsAlgo;
+    struct rusage rusageDebut;
+    struct rusage rusageFin;
 
+    long long int tempsAlgo;
+    long long int tempsUser;
+    long long int tempsSys;
+
+    getrusage(RUSAGE_SELF, &rusageDebut);
     gettimeofday(&debut,NULL);
     /* Algo */
     algo_principal(parallelism, tableau, taille, arg);
     gettimeofday(&fin,NULL);
+    getrusage(RUSAGE_SELF, &rusageFin);
     tempsAlgo = to_usec(fin) - to_usec(debut);
+    tempsUser = to_usec(rusageFin.ru_utime) - to_usec(rusageDebut.ru_utime);
+    tempsSys = to_usec(rusageFin.ru_stime) - to_usec(rusageDebut.ru_stime);
     
     if(temps)
     {
-        printf("temps de l'algo_principal = %lld microsecondes\n", tempsAlgo);
+        // printf("temps de l'algo_principal = %lld microsecondes\n", tempsAlgo);
+        printf("%lld,", tempsAlgo);
+
     }
 
 
     if(ressources){
-        getrusage(RUSAGE_SELF, &usage_proc);
-        tempsCumuleProc = usage_proc.ru_utime;
-        tempsCumuleSys = usage_proc.ru_stime;
-        printf("Le temps cumulé en mode utilisateur = %lld microsecondes\n ", to_usec(tempsCumuleProc));
-        printf("Le temps cumulé en mode SU %lld microsecondes\n", to_usec(tempsCumuleSys));
+        // printf("Le temps cumulé en mode utilisateur = %lld microsecondes\n ", tempsUser);
+        // printf("Le temps cumulé en mode SU %lld microsecondes\n", tempsSys);
+        printf("%lld,", tempsUser);
+        printf("%lld\n", tempsSys);
     }
+
     
 
     return 0;

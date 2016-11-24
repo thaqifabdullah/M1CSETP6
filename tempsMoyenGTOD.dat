@@ -1,0 +1,14 @@
+#Première colonne, taille du vecteur
+#Deuxieme colonne, tempsMoyenSeq
+#Troisième colonne, tempsMoyenThreads1
+#Quatrième colonne, tempsMoyenThreads2
+#Cinquième colonne, tempsMoyenThreads4
+#Sixième colonne, tempsMoyenThreads8
+#Septième colonne, tempsMoyenThreads16
+1000 279 715 700 638 1023 2024
+5000 1215 1616 1159 1207 2021 3139
+10000 2196 2517 1651 1477 2276 3918
+50000 6361 6499 4085 3437 4505 7018
+100000 9406 9372 5616 4709 5837 9900
+500000 50007 50316 31519 24056 28286 43295
+1000000 104294 104897 62142 47303 54184 83143

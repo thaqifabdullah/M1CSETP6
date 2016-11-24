@@ -1,0 +1,11 @@
+plot 'tempsMoyenGTOD.dat' with linespoints
+set title "tri_sequantiel VS tri_threads"
+set xlabel "taille du vecteur"
+set ylabel "temps d'execution en microsecondes"
+plot [1000:1000000] [*:*] "tempsMoyenGTOD.dat" title "tri_seq" with linespoints
+replot "tempsMoyenGTOD.dat" using 1:3 title "tri_threads --parallelism 1" with linespoints
+replot "tempsMoyenGTOD.dat" using 1:3 title "tri_threads --parallelism 1" with linespoints
+replot "tempsMoyenGTOD.dat" using 1:3 title "tri_threads --parallelism 1" with linespoints
+replot "tempsMoyenGTOD.dat" using 1:3 title "tri_threads --parallelism 1" with linespoints
+replot "tempsMoyenGTOD.dat" using 1:3 title "tri_threads --parallelism 1" with linespoints
+replot "tempsMoyenGTOD.dat" using 1:3 title "tri_threads --parallelism 1" with linespoints
